@@ -1,9 +1,13 @@
 # agic permission helm error
+
+The error:
+*Failed to watch *v1beta1.AzureApplicationGatewayRewrite: failed to list *v1beta1.AzureApplicationGatewayRewrite: azureapplicationgatewayrewrites.appgw.ingress.azure.io is forbidden: User "system:serviceaccount:app-gw-ing-ctrl-appgwisc:app-gw-ing-ctrl" cannot list resource "azureapplicationgatewayrewrites" in API group "appgw.ingress.azure.io" at the cluster scope*
+
 Kubernetes ServiceAccount app-gw-ing-ctrl in the namespace app-gw-ing-ctrl-appgwisc does not have sufficient permissions to list the custom resource azureapplicationgatewayrewrites in the API group appgw.ingress.azure.io.
 
 The error message indicates that the Kubernetes ServiceAccount app-gw-ing-ctrl in the namespace app-gw-ing-ctrl-appgwisc does not have sufficient permissions to list the custom resource azureapplicationgatewayrewrites in the API group appgw.ingress.azure.io. Here’s how to resolve this issue:
 
-## Steps to Fix the Error
+## Possible steps to Fix the Error
 
 **Verify the Custom Resource Definition (CRD):**
 Ensure that the CRD azureapplicationgatewayrewrites exists in your cluster. You can verify this by running:
